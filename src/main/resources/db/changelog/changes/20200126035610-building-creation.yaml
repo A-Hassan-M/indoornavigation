@@ -1,0 +1,99 @@
+databaseChangeLog:
+- changeSet:
+    id: 1580003779229-1
+    author: ahmed.hassan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: buildingPK
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: user_id
+            type: BIGINT
+        - column:
+            name: position_id
+            type: BIGINT
+        tableName: building
+- changeSet:
+    id: 1580003779229-2
+    author: ahmed.hassan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: levelPK
+            name: id
+            type: BIGINT
+        - column:
+            name: building_id
+            type: BIGINT
+        tableName: level
+- changeSet:
+    id: 1580003779229-3
+    author: ahmed.hassan (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: positionPK
+            name: id
+            type: BIGINT
+        - column:
+            name: latitude
+            type: DOUBLE
+        - column:
+            name: longitude
+            type: DOUBLE
+        tableName: position
+- changeSet:
+    id: 1580003779229-7
+    author: ahmed.hassan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: building
+        constraintName: FK4qcvty98fv128jix76k2e03qt
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: user
+- changeSet:
+    id: 1580003779229-9
+    author: ahmed.hassan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: building_id
+        baseTableName: level
+        constraintName: FK5fvsbymyuklyd7y0fb3f00b3x
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: building
+- changeSet:
+    id: 1580003779229-10
+    author: ahmed.hassan (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: position_id
+        baseTableName: building
+        constraintName: FKotr3m6l6ijl5q6vm3xjqpet1g
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: position
+
+

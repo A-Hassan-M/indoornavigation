@@ -1,6 +1,7 @@
 databaseChangeLog:
-
-  - include:
-      file: classpath*:db/changelog/changes/20200126035039-user-creation.yaml
   - include:
       file: classpath*:db/changelog/changes/20200126035144-user-creation.yaml
+  - include:
+      file: classpath*:db/changelog/changes/20200126035610-building-creation.yaml
+  - include:
+      file: classpath*:db/changelog/changes/20200126040518-user-update.yaml

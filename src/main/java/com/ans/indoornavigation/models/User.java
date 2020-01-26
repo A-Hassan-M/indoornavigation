@@ -1,6 +1,7 @@
 package com.ans.indoornavigation.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,10 @@ public class User {
     private long id;
     @Column(name = "user_name")
     private String userName;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
@@ -27,6 +32,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Building> buildings;
 
     public long getId() {
         return id;
@@ -74,5 +82,36 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public List<Building> getBuildings() {
+        return buildings;
+    }
+
+    public void setBuildings(List<Building> buildings) {
+        this.buildings = buildings;
+    }
+
+    public void addBuilding(Building building) {
+        if (buildings == null)
+            buildings = new ArrayList<>();
+        buildings.add(building);
+        building.setAdmin(this);
     }
 }

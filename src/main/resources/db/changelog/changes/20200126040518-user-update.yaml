@@ -1,0 +1,22 @@
+databaseChangeLog:
+- changeSet:
+    id: 1580004326549-1
+    author: ahmed.hassan (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: first_name
+            type: varchar(255)
+        tableName: user
+- changeSet:
+    id: 1580004326549-2
+    author: ahmed.hassan (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: last_name
+            type: varchar(255)
+        tableName: user
+
