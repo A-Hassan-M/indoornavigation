@@ -1,3 +1,3 @@
 databaseChangeLog:
   - include:
-      file: classpath*:db/changelog/changes/20200126032701-user-creation.yaml
+      file: classpath*:db/changelog/changes/20200126033719-user-creation.yaml
